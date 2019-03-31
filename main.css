@@ -2,8 +2,9 @@
 /* COLOR PALETTE
 TAN: #d5a687;
 ORANGE: #c6704e;
-PINK: #cea798;
 RED: #bd593e;
+PINK: #cea798;
+Text: #D8D4D5;
 */
 
 * {
@@ -14,4 +15,66 @@ RED: #bd593e;
 
 article, aside, details, figcaption, figure, footer, header, main, nav, section, summary {
     display: block;
+}
+
+body {
+ background-image: url("img/background.png");
+ background-repeat: repeat;
+}
+
+h1 {
+	text-align: center;
+	font-family: 'Libre Baskerville' ;
+	font-size: 2.5em;
+	color: #bd593e;
+	padding: 25px;
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+p {
+	text-align: center;
+	font-family: 'Libre Baskerville' ;
+	font-size: 1.5em !important;
+}
+
+.tan {
+	background-color: #d5a687;
+	color: #D8D4D5;
+	padding: 50px;
+	font-family: 'Libre Baskerville' ;
+}
+
+.orange {
+	background-color: #c6704e;
+	color: #D8D4D5;
+	padding: 50px;
+	font-family: 'Libre Baskerville' ;
+}
+
+.red {
+	background-color:#bd593e;
+	color: #D8D4D5;
+	padding: 50px;
+	font-family: 'Libre Baskerville' ;
+}
+
+.pink {
+	background-color: #cea798;
+	color: #D8D4D5;
+	padding: 50px;
+	font-family: 'Libre Baskerville' ;
+}
+
+.container-fluid {
+	padding-top: 25px;
+}
+
+.hidden {
+	display: none;
+}
+
+section {
+	width: 50%;
+	margin: auto;
 }
