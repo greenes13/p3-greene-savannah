@@ -1,8 +1,8 @@
 //Global Variables
-const mySquares = document.getElementsByClassName ("square");
-const myFirstSquares = document.getElementsByClassName ('layer-1')
-const mySecondSquares = document.getElementsByClassName('layer-2');
-const myThirdSquares = document.getElementsByClassName('layer-3');
+const mySquares = document.getElementsByClassName ('square', 'one');
+const myFirstSquares = document.getElementsByClassName ('layer-1', 'two')
+const mySecondSquares = document.getElementsByClassName('layer-2', 'three');
+const myThirdSquares = document.getElementsByClassName('layer-3', 'four');
 
 
 //Functionality
@@ -14,7 +14,7 @@ function loopThrough () {
 };
 
 function loopThroughNumber () {
-  const growSquare = () => this.classList.toggle('swing');
+  const growSquare = () => this.classList.toggle('underline');
     const numStringValue = this.textContent;
     for (let i = 0; i < Number(numStringValue) * 2; i++) {
     setTimeout(growSquare, i * 1000);
@@ -38,7 +38,7 @@ function changeSquareTwo() {
       myThirdSquares[i].classList.remove('hidden');
     }
   }
-  setTimeout(change, this.textContent.length * 2000);
+  setTimeout(change, this.textContent.length * 1000);
 };
 
 // Messages - Fortunes
@@ -62,8 +62,8 @@ function displayMessage() {
 //Event Listener
 for (let i = 0; i < mySquares.length; i++) {
   myFirstSquares[i].addEventListener('click', loopThrough);
-  myFirstSquares[i].addEventListener('click', changeSquare)
-  mySecondSquares[i].addEventListener('click', loopThroughNumber);
+  myFirstSquares[i].addEventListener('click', changeSquare);
+    mySecondSquares[i].addEventListener('click', loopThroughNumber);
   mySecondSquares[i].addEventListener('click', changeSquareTwo);
   myThirdSquares[i].addEventListener('click', loopThroughNumber);
   myThirdSquares[i].addEventListener('click', displayMessage);

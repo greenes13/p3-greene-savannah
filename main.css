@@ -118,3 +118,8 @@ section {
 .message.closed {
 	max-height: 0;
 }
+
+.underline {
+text-decoration: underline;
+transition: 3s;
+}
