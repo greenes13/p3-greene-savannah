@@ -4,10 +4,6 @@ const myFirstSquares = document.getElementsByClassName ('layer-1')
 const mySecondSquares = document.getElementsByClassName('layer-2');
 const myThirdSquares = document.getElementsByClassName('layer-3');
 
-const layerOne = document.getElementById('layer-1-tan', 'layer-1-orange', 'layer-1-pink', 'layer-1-red');
-const layerTwo = document.getElementById('layer-2-tan', 'layer-2-orange', 'layer-2-pink', 'layer-2-red');
-const layerThree = document.getElementById('layer-3-tan', 'layer-3-orange', 'layer-3-pink', 'layer-3-red');
-
 
 //Functionality
 function loopThrough () {
@@ -18,59 +14,57 @@ function loopThrough () {
 };
 
 function loopThroughNumber () {
-  const growSquare = () => this.classList.toggle('bigger');
+  const growSquare = () => this.classList.toggle('swing');
     const numStringValue = this.textContent;
-    for (let i = 0; i < Number(numStringValue * 2); i++) {
+    for (let i = 0; i < Number(numStringValue) * 2; i++) {
     setTimeout(growSquare, i * 1000);
   }
 };
 
 function changeSquare() {
   const change = () => {
-    myFirstSquares.classList.add('hidden');
-    mySecondSquares.classList.remove('hidden');
+    for (let i = 0; i < mySquares.length; i++) {
+      myFirstSquares[i].classList.add('hidden');
+      mySecondSquares[i].classList.remove('hidden');
+    }
   }
-  setTimeout(change, this.textContent.length * 2000);
+  setTimeout(change, this.textContent.length * 1000);
 };
 
 function changeSquareTwo() {
   const change = () => {
-    mySecondSquares.classList.add('hidden');
-    myThirdSquares.classList.remove('hidden');
+    for (let i = 0; i < mySquares.length; i++) {
+      mySecondSquares[i].classList.add('hidden');
+      myThirdSquares[i].classList.remove('hidden');
+    }
   }
   setTimeout(change, this.textContent.length * 2000);
 };
 
+// Messages - Fortunes
+const messageWrapper = document.getElementById('advice');
+
+const messageItems = ['Work hard in silence, let you success be your noise.', 'Get wild!', 'Your comfort zone will kill you.', 'Remember your words can plant gardens or burn forests down.', 'Dont be a lady be a lengend', 'Stay close to people who feel like sunshine.', 'You do not grow when you are comfortable.', 'Dreaming, after all, is a form of planning.', 'Put yourself in the way of beauty.', 'Be a nice human.']
+
+const messageSection = document.querySelector('section.hidden')
+
+const getRandomMessage = function() {
+  messageItems.sort(() => (0.5 - Math.random()));
+  return messageItems[0];
+};
+
+function displayMessage() {
+  messageWrapper.innerHTML = getRandomMessage()
+  messageSection.classList.remove('hidden');
+  messageSection.classList.add('message');
+}
+
 //Event Listener
 for (let i = 0; i < mySquares.length; i++) {
-   myFirstSquares[i].addEventListener('click', loopThrough);
-   myFirstSquares[i].addEventListener('click', changeSquare)
-   mySecondSquares[i].addEventListener('click', loopThroughNumber);
-   mySecondSquares[i].addEventListener('click', changeSquareTwo);
-   myThirdSquares[i].addEventListener('click', loopThroughNumber);
-   myThirdSquares[i].addEventListener('click', message);
+  myFirstSquares[i].addEventListener('click', loopThrough);
+  myFirstSquares[i].addEventListener('click', changeSquare)
+  mySecondSquares[i].addEventListener('click', loopThroughNumber);
+  mySecondSquares[i].addEventListener('click', changeSquareTwo);
+  myThirdSquares[i].addEventListener('click', loopThroughNumber);
+  myThirdSquares[i].addEventListener('click', displayMessage);
 };
-
-// Messages
-
-const message = document.getElementsByClassName ('message');
-
-const myRandomMessage= document.createElement('p');
-const messageWrapper = document.getElementById('advice');
-messageWrapper.appendChild(myRandomMessage);
-
-const placeholderText = document.createTextNode('');
-myRandomMessage.appendChild(placeholderText);
-
-const messageItems = ['Message-1', 'Message-2', 'Message-3']
-
-const sortMessages = function() {
-  messageItems.sort(function(a, b){return 0.5 - Math.random()});
-  const myRandomMessageFiller = document.createTextNode(messageItems[0]);
-  myRandomMessage.appendChild(myRandomMessageFiller);
-  const mySquare = document.getElementById('layer-3');
-  mySquare.removeChild(section);
-  myRandomMessage.classList.remove('hidden');
-};
-
-message[i].addEventListener('click', sortMessages);

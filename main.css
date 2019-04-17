@@ -86,3 +86,35 @@ section {
   transform: scale(1.1);
 	margin: 25px;
 }
+
+.tan:hover {
+	opacity: .8;
+}
+
+.orange:hover {
+	opacity: .8;
+}
+
+.red:hover {
+	opacity: .8;
+}
+
+.pink:hover {
+	opacity: .8;
+}
+
+.message {
+	background-color:#FEE6D5;
+	color: #bd593e;
+	padding: 50px;
+	font-family: 'Libre Baskerville';
+		overflow-y: hidden;
+		max-height: 500px;
+		transition-property: all;
+		transition-duration: 1s;
+		transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+}
+
+.message.closed {
+	max-height: 0;
+}
